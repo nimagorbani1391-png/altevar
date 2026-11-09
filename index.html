@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALTEVAR | Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  
+  <style>
+    /* پس‌زمینه مربعی */
+    body { 
+      font-family: 'Vazirmatn', sans-serif; 
+      background-color: #f8fafc;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: #0f172a;
+      margin: 0;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* کارت‌های شیشه‌ای */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    /* دکمه قرمز توپر */
+    .btn-solid-red {
+      background-color: #dc2626;
+      color: white;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+    }
+    .btn-solid-red:active {
+      background-color: #b91c1c;
+      transform: scale(0.97);
+    }
+
+    /* مخفی کردن اسکرول‌بار */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* بخش‌های صفحات (SPA Logic) */
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="flex flex-col">
+
+  <!-- هدر بالا -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 px-4 py-3 flex items-center justify-between shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center">
+        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-[10px] text-gray-500">خوش آمدید 👋</span>
+        <span class="text-sm font-bold text-gray-900">نیما قربانی</span>
+      </div>
+    </div>
+    
+    <div class="flex flex-col items-center justify-center bg-yellow-50 border border-yellow-200 px-4 py-1.5 rounded-xl">
+      <span class="text-[10px] text-yellow-700 font-bold">موجودی سکه</span>
+      <div class="flex items-center gap-1">
+        <span class="text-lg">🪙</span>
+        <span class="text-lg font-black text-yellow-600">۱,۲۰۰</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-md mx-auto w-full px-4 mt-6 flex flex-col gap-6">
+    
+    <!-- ================= صفحه 1: کسب سکه (خانه) ================= -->
+    <div id="page-home" class="page-section active">
+      <section>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-base font-black text-gray-900 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            افزایش سکه با عضویت
+          </h2>
+          <span class="text-xs text-gray-500 font-bold">۳۰ از ۳۰</span>
+        </div>
+        
+        <div class="space-y-3">
+          <div class="glass-panel p-4 rounded-2xl flex items-center justify-between relative overflow-hidden">
+            <div class="absolute inset-y-0 right-0 w-1 bg-red-500"></div>
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-gray-900">کانال رسمی ALTEVAR</h3>
+                <p class="text-[11px] text-gray-600 font-medium mt-0.5">با عضویت، <span class="text-red-600 font-bold">۵ سکه</span> بگیرید.</p>
+              </div>
+            </div>
+            <button onclick="joinChannel()" class="btn-solid-red px-5 py-2 rounded-xl text-xs font-bold">عضویت</button>
+          </div>
+
+          <div class="glass-panel p-4 rounded-2xl flex items-center justify-between relative overflow-hidden opacity-50">
+            <div class="absolute inset-y-0 right-0 w-1 bg-gray-400"></div>
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-gray-900">کانال فروشگاهی</h3>
+                <p class="text-[11px] text-gray-600 font-medium mt-0.5">با عضویت، <span class="text-gray-800 font-bold">۵ سکه</span> بگیرید.</p>
+              </div>
+            </div>
+            <button class="bg-gray-300 px-5 py-2 rounded-xl text-xs font-bold text-gray-500 cursor-not-allowed">عضویت</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-sm font-black text-gray-900 mb-3 flex items-center gap-2">
+          <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+          نظرات کاربران
+        </h3>
+        
+        <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
+          <div class="glass-panel min-w-[220px] p-3 rounded-2xl flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-8 h-8 rounded-full bg-gray-100">
+              <div>
+                <h4 class="text-[11px] font-bold text-gray-900">رضا محمدی</h4>
+                <div class="flex text-yellow-400 text-[9px]">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-[10px] text-gray-600 leading-relaxed mt-1">تو دو روز تونستم ۵۰۰ ممبر واقعی بگیرم. سیستم خیلی روونه.</p>
+          </div>
+          <div class="glass-panel min-w-[220px] p-3 rounded-2xl flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lily" class="w-8 h-8 rounded-full bg-gray-100">
+              <div>
+                <h4 class="text-[11px] font-bold text-gray-900">سارا احمدی</h4>
+                <div class="flex text-yellow-400 text-[9px]">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-[10px] text-gray-600 leading-relaxed mt-1">بهترین سایت عضوگیر. پشتیبانی هم سریع جواب میده.</p>
+          </div>
+          <div class="glass-panel min-w-[220px] p-3 rounded-2xl flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Max" class="w-8 h-8 rounded-full bg-gray-100">
+              <div>
+                <h4 class="text-[11px] font-bold text-gray-900">علی رضایی</h4>
+                <div class="flex text-yellow-400 text-[9px]">⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-[10px] text-gray-600 leading-relaxed mt-1">خرید سکه خیلی راحته. زرین‌پال سریع تایید کرد.</p>
+          </div>
+          <div class="glass-panel min-w-[220px] p-3 rounded-2xl flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zoe" class="w-8 h-8 rounded-full bg-gray-100">
+              <div>
+                <h4 class="text-[11px] font-bold text-gray-900">مریم کاظمی</h4>
+                <div class="flex text-yellow-400 text-[9px]">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p class="text-[10px] text-gray-600 leading-relaxed mt-1">از ALTEVAR برای کانال آشپزیم ممبر گرفتم، عالی بود.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= صفحه 2: سفارش‌ها ================= -->
+    <div id="page-orders" class="page-section">
+      <h2 class="text-base font-black text-gray-900 mb-3 flex items-center gap-2">
+        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+        سفارش‌های من
+      </h2>
+      <div class="glass-panel p-4 rounded-2xl space-y-3">
+        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-green-100 text-green-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-gray-900">کانال فروشگاهی</p>
+              <p class="text-[10px] text-gray-500">۱۰۰ ممبر | ۴۰۰ سکه</p>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded">تکمیل شده</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-gray-900">کانال خبری</p>
+              <p class="text-[10px] text-gray-500">۵۰ ممبر | ۲۰۰ سکه</p>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded">در حال انجام</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= صفحه 3: خرید سکه ================= -->
+    <div id="page-buy" class="page-section">
+      <h2 class="text-base font-black text-gray-900 mb-3 flex items-center gap-2">
+        <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        خرید سکه
+      </h2>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۲۰۰</span><span class="text-[10px] text-gray-500 font-bold">۱۰ هزار تومان</span>
+        </div>
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-yellow-400 relative bg-yellow-50/50 cursor-pointer">
+          <div class="absolute -top-2 bg-yellow-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">پرفروش</div>
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۴۰۰</span><span class="text-[10px] text-gray-500 font-bold">۲۰ هزار تومان</span>
+        </div>
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۶۰۰</span><span class="text-[10px] text-gray-500 font-bold">۳۰ هزار تومان</span>
+        </div>
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۸۰۰</span><span class="text-[10px] text-gray-500 font-bold">۴۰ هزار تومان</span>
+        </div>
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۱۰۰۰</span><span class="text-[10px] text-gray-500 font-bold">۵۰ هزار تومان</span>
+        </div>
+        <div class="glass-panel p-3 rounded-2xl flex flex-col items-center justify-center border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+          <span class="text-2xl mb-1">🪙</span><span class="text-lg font-black text-gray-900">۱۲۰۰</span><span class="text-[10px] text-gray-500 font-bold">۶۰ هزار تومان</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= صفحه 4: دعوت دوستان ================= -->
+    <div id="page-invite" class="page-section">
+      <div class="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+        <div class="w-20 h-20 bg-red-50 text-red-500 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        </div>
+        <h2 class="text-xl font-black text-gray-900 mb-2">دعوت دوستان</h2>
+        <p class="text-xs text-gray-500 mb-6 leading-relaxed">با هر دعوت، <strong class="text-green-600">۵۰ سکه</strong> رایگان دریافت کنید!</p>
+        
+        <div class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-center justify-between mb-4">
+          <span id="invite-link" class="text-sm font-bold text-gray-600 truncate mr-2" dir="ltr">altevar.ir/ref/nima123</span>
+          <button onclick="copyLink()" class="bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-transform">کپی</button>
+        </div>
+        <button class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition-colors">ارسال به روبیکا</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- نوار ناوبری پایین -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 px-6 py-2 pb-4 flex justify-between items-center shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+    <button onclick="switchPage('home')" id="nav-home" class="flex flex-col items-center gap-1 text-red-600 transition-colors">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+      <span class="text-[10px] font-bold">خانه</span>
+    </button>
+    <button onclick="switchPage('orders')" id="nav-orders" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+      <span class="text-[10px] font-bold">سفارش‌ها</span>
+    </button>
+    <button onclick="switchPage('buy')" id="nav-buy" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <span class="text-[10px] font-bold">خرید سکه</span>
+    </button>
+    <button onclick="switchPage('invite')" id="nav-invite" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+      <span class="text-[10px] font-bold">دعوت</span>
+    </button>
+  </nav>
+
+  <!-- دکمه پشتیبانی شناور -->
+  <a href="https://rubika.ir/ALTEVAR" target="_blank" class="fixed bottom-20 right-4 z-50 bg-green-500 hover:bg-green-400 text-white p-3.5 rounded-full shadow-[0_4px_15px_rgba(34,197,94,0.4)] transition-all active:scale-90 flex items-center justify-center border-2 border-white">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+  </a>
+
+  <script>
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(page => { page.classList.remove('active'); });
+      document.getElementById('page-' + pageId).classList.add('active');
+
+      const bottomNavs = ['home', 'orders', 'buy', 'invite'];
+      bottomNavs.forEach(t => {
+        const el = document.getElementById('nav-' + t);
+        if(t === pageId) {
+          el.classList.add('text-red-600'); el.classList.remove('text-gray-400');
+        } else {
+          el.classList.remove('text-red-600'); el.classList.add('text-gray-400');
+        }
+      });
+    }
+
+    function copyLink() {
+      const linkText = document.getElementById('invite-link').innerText;
+      navigator.clipboard.writeText(linkText).then(() => {
+        alert('✅ لینک دعوت با موفقیت کپی شد!\nحالا می‌تونید برای دوستانتون بفرستید.');
+      }).catch(err => {
+        alert('❌ مرورگر شما اجازه کپی خودکار نمی‌ده.\nلطفا متن را دستی انتخاب کنید.');
+      });
+    }
+
+    function joinChannel() {
+      const channelLink = "https://rubika.ir/ALTEVAR"; 
+      window.open(channelLink, '_blank');
+      setTimeout(() => {
+        alert('✅ ۵ سکه به موجودی شما اضافه شد!\n(شبیه سازی)');
+      }, 3000);
+    }
+  </script>
+</body>
+  </html>
